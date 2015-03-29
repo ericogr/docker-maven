@@ -1,5 +1,5 @@
 #!/bin/bash
-IMAGE_NAME=maven-docker:1.0
+IMAGE_NAME=ericogr/maven-docker:1.0
 
 echo "====================="
 
