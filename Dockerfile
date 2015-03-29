@@ -20,8 +20,9 @@ RUN \
   rm -rf /var/cache/oracle-jdk8-installer
 
 # Variaveis de ambiente java e maven
-ENV M2_HOME /opt/apache-maven
 ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
+ENV M2_HOME /opt/apache-maven
+ENV PATH $M2_HOME/bin:$PATH
 
 #instala o maven
 RUN \
@@ -29,8 +30,7 @@ RUN \
   tar zxvf apache-maven-3.3.1-bin.tar.gz && \
   mv apache-maven-3.3.1 /opt && \
   ln -s /opt/apache-maven-3.3.1 /opt/apache-maven && \
-  rm apache-maven-3.3.1-bin.tar.gz && \
-  printf '\n# Maven\nexport PATH="$M2_HOME/bin:$PATH"' >> /root/.bashrc
+  rm apache-maven-3.3.1-bin.tar.gz
 
 # Define working directory.
 WORKDIR /data
